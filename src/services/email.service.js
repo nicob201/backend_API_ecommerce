@@ -58,7 +58,7 @@ export const sendPurchaseTicketEmail = async (ticket, products, totalAmount) => 
 
 // Email para reseteo de contraseña
 export const sendResetEmail = async (email, token) => {
-  const resetUrl = `http://localhost:8080/api/sessions/reset-password/${token}`;
+  const resetUrl = `${config.BASE_URL}/sessions/reset-password/${token}`;
   const message = `
     <h1>Password Reset Request</h1>
     <h4>You requested a password reset</h4>

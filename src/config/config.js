@@ -12,6 +12,7 @@ dotenv.config({ path: environment === "DEVELOPMENT" ? "./.env.development" : "./
 export default {
   MONGO_URL: process.env.MONGO_URL,
   PORT: process.env.PORT,
+  BASE_URL: process.env.BASE_URL,
   CLIENT_ID: process.env.CLIENT_ID,
   CLIENT_SECRET: process.env.CLIENT_SECRET,
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
@@ -20,5 +21,5 @@ export default {
   MAILING_PASSWORD: process.env.MAILING_PASSWORD,
   STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
   STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY,
-  BASE_URL: process.env.BASE_URL,
+  STRIPE_BASE_URL: process.env.STRIPE_BASE_URL,
 };

@@ -1,4 +1,5 @@
 import productModel from "../dao/models/product.model.js";
+import config from "../config/config.js";
 
 // Devuelve los productos
 async function getProductsService({ sort, limit = 4, page = 1, category }) {
@@ -53,7 +54,7 @@ async function deleteProductService(pid) {
 
 // Renderiza en el front los productos
 async function renderProductsService({ sort, limit = 10, page = 1, category = "" }) {
-  const url = `http://localhost:8080/api/products?sort=${sort}&limit=${limit}&page=${page}&category=${category}`;
+  const url = `${config.BASE_URL}/products?sort=${sort}&limit=${limit}&page=${page}&category=${category}`;
   const response = await fetch(url);
   return await response.json();
 }

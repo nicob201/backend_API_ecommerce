@@ -30,8 +30,8 @@ class PaymentService {
                 payment_method_types: ['card'],
                 line_items: lineItems,
                 mode: 'payment',
-                success_url: `${config.BASE_URL}/payments/success`,
-                cancel_url: `${config.BASE_URL}/payments/cancel`,
+                success_url: `${config.STRIPE_BASE_URL}/payments/success`,
+                cancel_url: `${config.STRIPE_BASE_URL}/payments/cancel`,
             });
 
             return session;
