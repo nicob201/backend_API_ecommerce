@@ -1,0 +1,159 @@
+openapi: 3.0.1
+info:
+  title: E-commerce API
+  description: API para el proyecto final de Coderhouse
+  version: 1.0.0
+
+tags:
+  - name: Tickets
+    description: "Operaciones relacionadas con los ticket de compras"
+
+paths:
+  /api/tickets/{cid}:
+    post:
+      summary: Crear un ticket a partir del carrito del usuario
+      tags:
+        - Tickets
+      parameters:
+        - in: path
+          name: cid
+          required: true
+          schema:
+            type: string
+          description: ID del carrito para crear el ticket
+      responses:
+        "200":
+          description: Ticket creado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  payload:
+                    $ref: "#/components/schemas/Ticket"
+        "404":
+          description: Carrito no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  error:
+                    type: string
+                    example: Cart not found!
+        "500":
+          description: Error al crear el ticket
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  error:
+                    type: string
+                    example: Failed to create ticket!
+
+  /api/tickets/{tid}:
+    get:
+      summary: Obtener un ticket por su ID
+      tags:
+        - Tickets
+      parameters:
+        - in: path
+          name: tid
+          required: true
+          schema:
+            type: string
+          description: ID del ticket a obtener
+      responses:
+        "200":
+          description: Ticket encontrado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  payload:
+                    $ref: "#/components/schemas/Ticket"
+        "404":
+          description: Ticket no encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  error:
+                    type: string
+                    example: Ticket not found!
+        "500":
+          description: Error al obtener el ticket
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  error:
+                    type: string
+                    example: Failed to get ticket!
+
+components:
+  schemas:
+    Ticket:
+      type: object
+      properties:
+        _id:
+          type: string
+          example: 64e5f8b8c9d8a3b4b8f6f7b9
+        code:
+          type: string
+          example: abc123defg
+        purchase_datetime:
+          type: string
+          format: date-time
+          example: 2024-09-14T12:34:56Z
+        amount:
+          type: number
+          format: float
+          example: 5000
+        purchaser:
+          type: string
+          example: 64e5f8b8c9d8a3b4b8f6f7b8
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              product:
+                type: string
+                example: 64e5f8b8c9d8a3b4b8f6f7c0
+              title:
+                type: string
+                example: Product Title
+              units:
+                type: number
+                example: 2
+              price:
+                type: number
+                format: float
+                example: 2500
+              total:
+                type: number
+                format: float
+                example: 5000
