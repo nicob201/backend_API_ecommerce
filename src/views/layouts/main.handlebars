@@ -45,28 +45,28 @@
             class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0"
           >
             <li><a
-                href="/products"
+                href="{{baseUrl}}/products"
                 class="nav-link px-2 text-white"
               >Home</a></li>
             <li><a
-                href="/products"
+                href="{{baseUrl}}/products"
                 class="nav-link px-2 text-white"
               >Products</a></li>
             <li><a
-                href="/carts"
+                href="{{baseUrl}}/carts"
                 class="nav-link px-2 text-white"
               >Carts</a></li>
             <li><a
-                href="/profile"
+                href="{{baseUrl}}/profile"
                 class="nav-link px-2 text-white"
               >Profile</a></li>
             <li><a
-                href="/chat"
+                href="{{baseUrl}}/chat"
                 class="nav-link px-2 text-white"
               >Chat</a></li>
             {{#if (eq user.role "admin")}}
               <li><a
-                  href="/admin"
+                  href="{{baseUrl}}/admin"
                   class="nav-link px-2 text-white"
                 >Users Panel</a></li>
             {{/if}}
@@ -76,7 +76,7 @@
               <form
                 class="d-inline-block me-2"
                 id="logoutForm"
-                action="/api/sessions/logout"
+                action="{{baseUrl}}/api/sessions/logout"
                 method="POST"
               >
                 <button
@@ -86,11 +86,11 @@
                 >Logout</button>
               </form>
             {{else}}
-              <a href="/login"><button
+              <a href="{{baseUrl}}/login"><button
                   type="button"
                   class="btn btn-outline-info me-2"
                 >Login</button></a>
-              <a href="/register"><button
+              <a href="{{baseUrl}}/register"><button
                   type="button"
                   class="btn btn-outline-light me-2"
                 >Register</button></a>
@@ -110,19 +110,19 @@
       <div class="container">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
           <li class="nav-item"><a
-              href="/products"
+              href="{{baseUrl}}/products"
               class="nav-link px-2 text-white"
             >Products</a></li>
           <li class="nav-item"><a
-              href="/carts"
+              href="{{baseUrl}}/carts"
               class="nav-link px-2 text-white"
             >Carts</a></li>
           <li class="nav-item"><a
-              href="/profile"
+              href="{{baseUrl}}/profile"
               class="nav-link px-2 text-white"
             >Profile</a></li>
           <li class="nav-item"><a
-              href="/chat"
+              href="{{baseUrl}}/chat"
               class="nav-link px-2 text-white"
             >Chat</a></li>
         </ul>

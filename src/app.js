@@ -91,6 +91,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
+  res.locals.baseUrl = config.BASE_URL;
   res.locals.user = req.session.user;
   next();
 });

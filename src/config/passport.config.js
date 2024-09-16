@@ -17,7 +17,7 @@ const initializePassport = () => {
   passport.use("github", new GitHubStrategy({
     clientID: config.CLIENT_ID,
     clientSecret: config.CLIENT_SECRET,
-    callbackURL: `${config.BASE_URL}/sessions/githubcallback`,
+    callbackURL: `${config.BASE_URL}/api/sessions/githubcallback`,
     customHeaders: { 'prompt': 'select_account' }
   },
     async (accessToken, refreshToken, profile, done) => {
@@ -50,7 +50,7 @@ const initializePassport = () => {
   passport.use("google", new GoogleStrategy({
     clientID: config.GOOGLE_CLIENT_ID,
     clientSecret: config.GOOGLE_CLIENT_SECRET,
-    callbackURL: `${config.BASE_URL}/sessions/googlecallback`,
+    callbackURL: `${config.BASE_URL}/api/sessions/googlecallback`,
   },
     async (accessToken, refreshToken, profile, done) => {
       try {

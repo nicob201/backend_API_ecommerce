@@ -52,11 +52,27 @@ async function deleteProductService(pid) {
   return await productModel.deleteOne({ _id: pid });
 }
 
-// Renderiza en el front los productos
+// Renderiza en el front los productos directamente desde la base de datos
 async function renderProductsService({ sort, limit = 10, page = 1, category = "" }) {
-  const url = `${config.BASE_URL}/products?sort=${sort}&limit=${limit}&page=${page}&category=${category}`;
-  const response = await fetch(url);
-  return await response.json();
+  const query = category ? { category } : {};
+
+  let options = {
+    limit: parseInt(limit, 10),
+    page: parseInt(page, 10)
+  };
+
+  // Ordenamiento por precio ascendente o descendente
+  if (sort === "asc" || sort === "desc") {
+    options.sort = { price: sort === "asc" ? 1 : -1 };
+  }
+
+  const result = await productModel.paginate(query, options);
+  const categories = await productModel.distinct("category");
+
+  return {
+    result,
+    categories
+  };
 }
 
 export {

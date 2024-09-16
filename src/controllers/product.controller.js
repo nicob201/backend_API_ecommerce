@@ -80,7 +80,6 @@ async function createProduct(req, res) {
   }
 }
 
-
 // Actualiza un producto existente
 async function updateProduct(req, res) {
   try {
@@ -133,7 +132,7 @@ async function deleteProduct(req, res) {
 }
 
 // Renderiza los productos en el front
-async function renderProducts(req, res) {
+/* async function renderProducts(req, res) {
   const { sort, limit, page, category } = req.query;
 
   try {
@@ -150,6 +149,34 @@ async function renderProducts(req, res) {
       hasNextPage: result.hasNextPage,
       prevLink: result.prevLink,
       nextLink: result.nextLink,
+      sort,
+      categories: result.categories,
+      user,
+    });
+  } catch (error) {
+    console.log("Error fetching products!", error);
+    res.status(500).send({ status: "error", error: "Failed to fetch products!" });
+  }
+} */
+async function renderProducts(req, res) {
+  const { sort, limit, page, category } = req.query;
+
+  try {
+    const result = await renderProductsService({ sort, limit, page, category });
+    const user = req.session.user;
+
+    const products = result.result.docs.map(product => JSON.parse(JSON.stringify(product)));
+
+    res.render("products", {
+      products,
+      totalPages: result.result.totalPages,
+      prevPage: result.result.prevPage,
+      nextPage: result.result.nextPage,
+      page: result.result.page,
+      hasPrevPage: result.result.hasPrevPage,
+      hasNextPage: result.result.hasNextPage,
+      prevLink: result.result.hasPrevPage ? `/products?limit=${limit}&sort=${sort || ""}&category=${category || ""}&page=${result.result.prevPage}` : null,
+      nextLink: result.result.hasNextPage ? `/products?limit=${limit}&sort=${sort || ""}&category=${category || ""}&page=${result.result.nextPage}` : null,
       sort,
       categories: result.categories,
       user,

@@ -100,6 +100,75 @@ paths:
         "500":
           description: Error en el servidor
 
+  /api/users/admin/{uid}:
+    put:
+      tags:
+        - Users
+      summary: Modifica el rol de un usuario
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+            description: ID del usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                newRole:
+                  type: string
+                  enum: ["user", "admin"]
+                  description: Nuevo rol del usuario
+              required:
+                - newRole
+      responses:
+        "200":
+          description: Rol del usuario actualizado
+        "400":
+          description: El usuario no tiene suficientes documentos para cambiar su rol
+        "404":
+          description: Usuario no encontrado
+        "500":
+          description: Error en el servidor
+
+  /api/users/{uid}/documents:
+    post:
+      tags:
+        - Users
+      summary: Sube documentos para un usuario
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+            description: ID del usuario
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                documents:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        "200":
+          description: Documentos subidos exitosamente
+        "400":
+          description: No se subieron archivos
+        "404":
+          description: Usuario no encontrado
+        "500":
+          description: Error en el servidor
+
 components:
   schemas:
     User:
@@ -141,3 +210,14 @@ components:
         resetToken:
           type: string
           description: Token de restablecimiento de contraseña
+        documents:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                description: Nombre del archivo subido
+              reference:
+                type: string
+                description: Referencia del archivo subido
