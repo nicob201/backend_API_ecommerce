@@ -14,7 +14,7 @@ class PaymentService {
                 throw new Error('El carrito está vacío');
             }
 
-            // Formatear los productos para que Stripe los entienda
+            // Formatea los productos al modelo de Stripe
             const lineItems = cart.products.map(item => ({
                 price_data: {
                     currency: 'usd',
