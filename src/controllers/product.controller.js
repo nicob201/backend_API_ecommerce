@@ -132,32 +132,6 @@ async function deleteProduct(req, res) {
 }
 
 // Renderiza los productos en el front
-/* async function renderProducts(req, res) {
-  const { sort, limit, page, category } = req.query;
-
-  try {
-    const result = await renderProductsService({ sort, limit, page, category });
-    const user = req.session.user;
-
-    res.render("products", {
-      products: result.payload,
-      totalPages: result.totalPages,
-      prevPage: result.prevPage,
-      nextPage: result.nextPage,
-      page: result.page,
-      hasPrevPage: result.hasPrevPage,
-      hasNextPage: result.hasNextPage,
-      prevLink: result.prevLink,
-      nextLink: result.nextLink,
-      sort,
-      categories: result.categories,
-      user,
-    });
-  } catch (error) {
-    console.log("Error fetching products!", error);
-    res.status(500).send({ status: "error", error: "Failed to fetch products!" });
-  }
-} */
 async function renderProducts(req, res) {
   const { sort, limit, page, category } = req.query;
 
