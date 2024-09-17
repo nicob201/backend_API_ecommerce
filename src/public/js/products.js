@@ -117,32 +117,30 @@ if (productForm) {
 
     let title = document.getElementById("title").value;
     let description = document.getElementById("description").value;
-    let price = document.getElementById("price").value;
+    let price = Number(document.getElementById("price").value);
     let image = document.getElementById("image").files[0];
     let code = document.getElementById("code").value;
     let status = document.getElementById("status").value;
-    let stock = document.getElementById("stock").value;
-
-    let productData = {
-      title,
-      description,
-      price,
-      image,
-      code,
-      status,
-      stock,
-    };
+    let stock = Number(document.getElementById("stock").value);
 
     try {
       let response = await fetch("/api/products", {
         method: "POST",
         headers: { "Content-Type": "application/json", },
-        body: JSON.stringify(productData),
+        body: JSON.stringify({
+          title,
+          description,
+          price,
+          image,
+          code,
+          status,
+          stock,
+        }),
       });
       let result = await response.json();
       console.log(result);
     } catch (error) {
-      console.error("Error fetching products!:", error);
+      console.error("Error creating product!:", error);
     }
   });
 }

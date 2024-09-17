@@ -71,7 +71,7 @@ async function createProduct(req, res) {
     res.send({ result: "Product created ok!", payload: result });
   } catch (error) {
     console.error("Error creating product:", error);
-
+    
     if (error.code === EErrors.INVALID_TYPES_ERROR) {
       res.status(400).send({ status: "error", error: error.message });
     } else {
