@@ -29,7 +29,7 @@ STRIPE_PUBLISHABLE_KEY=
 STRIPE_BASE_URL=http://localhost:8080/api
 ```
 
-### La API se encuentra documentada utilizando Swagger, se puede ver dicha documentación en el siguiente [enlace](http://localhost:8080/api/docs/#/).
+### La API se encuentra documentada utilizando Swagger, se puede ver dicha documentación en el siguiente [enlace](http://localhost:8080/api/docs/#/). (correr local)
 
 ### Se deja precargado en la base de datos un usuario "ADMIN" con los siguientes datos:
 

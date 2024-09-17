@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Email con ticket de compra
-const sendEmailTicket = (to, subject, text, html) => {
+const sendEmailTicket = async (to, subject, text, html) => {
   const mailOptions = {
     from: config.MAILING_EMAIL,
     to,
@@ -19,17 +19,19 @@ const sendEmailTicket = (to, subject, text, html) => {
     html,
   };
 
-  return transporter.sendMail(mailOptions);
+  try {
+    const info = await transporter.sendMail(mailOptions);
+  } catch (error) {}
 };
 
 // Logica para Email del ticket de compra
-export const sendPurchaseTicketEmail = async (ticket, products, totalAmount) => {
+export const sendPurchaseTicketEmail = async (ticket, products, totalAmount, userEmailLogged) => {
   const productDetails = products.map(item => `
     <tr>
-      <td>${item.title}</td>
-      <td>${item.units}</td>
-      <td>${item.price}</td>
-      <td>${item.total}</td>
+      <td>${item.title ?? 'N/A'}</td>
+      <td>${item.units ?? 'N/A'}</td>
+      <td>${item.price ?? 'N/A'}</td>
+      <td>${item.total ?? 'N/A'}</td>
     </tr>
   `).join("");
 
@@ -52,8 +54,7 @@ export const sendPurchaseTicketEmail = async (ticket, products, totalAmount) => 
     </table>
     <p>Total: $ ${totalAmount}</p>
   `;
-
-  await sendEmailTicket(config.MAILING_EMAIL, "Detalle de tu compra", "", emailHTML);
+  await sendEmailTicket(userEmailLogged, "Detalle de tu compra", "", emailHTML);
 };
 
 // Email para reseteo de contraseña
