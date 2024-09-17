@@ -23,7 +23,6 @@ const initializePassport = () => {
     async (accessToken, refreshToken, profile, done) => {
       try {
         let user = await userService.findOne({ githubId: profile.id });
-        //console.log(profile);
         if (!user) {
           let newUser = {
             first_name: profile._json.name || profile.displayName || profile.username,

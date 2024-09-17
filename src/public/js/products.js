@@ -138,7 +138,6 @@ if (productForm) {
         }),
       });
       let result = await response.json();
-      console.log(result);
     } catch (error) {
       console.error("Error creating product!:", error);
     }
