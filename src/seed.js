@@ -8,7 +8,7 @@ const products = [
     title: 'MacBook Pro 14" M3 Pro',
     description: "Laptop Apple con chip M3 Pro de 11 núcleos, 18GB RAM unificada, SSD 512GB, pantalla Liquid Retina XDR 14.2\", batería hasta 17 horas. Ideal para desarrollo y diseño profesional.",
     price: 1999,
-    thumbnail: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp14-spaceblack-select-202310",
+    thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/HP_Spectre_x360_13_stjqb2.jpg",
     code: "NB-001",
     category: "notebooks",
     status: true,
