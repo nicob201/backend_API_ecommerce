@@ -15,17 +15,17 @@
     "@faker-js/faker": "^8.4.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
-    "chai": "^5.1.1",
-    "chai-http": "^5.0.0",
     "compression": "^1.7.4",
     "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
-    "mocha": "^10.7.3",
+    "helmet": "^7.1.0",
     "mongoose": "^8.4.1",
     "mongoose-paginate-v2": "^1.8.2",
+    "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "nanoid": "^5.0.7",
     "nodemailer": "^6.9.14",
@@ -35,13 +35,15 @@
     "passport-local": "^1.0.0",
     "socket.io": "^4.7.5",
     "stripe": "^16.11.0",
-    "supertest": "^7.0.0",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.1",
-    "sweetalert2": "^11.12.1"
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "@types/chai-http": "^3.0.5"
+    "@types/chai-http": "^3.0.5",
+    "chai": "^5.1.1",
+    "chai-http": "^5.0.0",
+    "mocha": "^10.7.3",
+    "supertest": "^7.0.0"
   },
   "directories": {
     "test": "test"

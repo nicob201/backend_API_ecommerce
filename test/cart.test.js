@@ -59,7 +59,7 @@ before(async function () {
 
     // Inicio de sesion con el usuario creado
     const resLogin = await requester
-        .post('/api/login')
+        .post('/api/sessions/login')
         .send({ email: 'usertest@gmail.com', password: 'password123' });
 
     cookie = resLogin.headers['set-cookie'];

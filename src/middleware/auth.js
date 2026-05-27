@@ -1,10 +1,6 @@
-import dotenv from "dotenv";
+import config from "../config/config.js";
 
-// Carga variables de entorno
-dotenv.config();
-
-// Convierte TEST_MODE a un valor booleano
-const testMode = process.env.TEST_MODE === 'true';
+const testMode = config.TEST_MODE;
 
 export const isAuthenticated = (req, res, next) => {
   if (testMode) {

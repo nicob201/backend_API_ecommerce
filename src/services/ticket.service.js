@@ -1,9 +1,6 @@
 import ticketModel from "../dao/models/ticket.model.js";
 import cartModel from "../dao/models/cart.model.js";
-import emailService from "../services/email.service.js";
 import { nanoid } from "nanoid";
-
-const { sendPurchaseTicketEmail } = emailService;
 
 // Crea un ticket a partir del carrito
 async function createTicketService(cid) {
@@ -25,9 +22,6 @@ async function createTicketService(cid) {
     code: nanoid(10),
     products: products
   });
-
-  // Llamado a la funcion de envio del email
-  await sendPurchaseTicketEmail(ticket, products, totalAmount);
 
   return ticket;
 }

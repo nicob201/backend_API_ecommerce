@@ -1,18 +1,14 @@
 import dotenv from "dotenv";
 
-// Seleccion de entorno de trabajo, si se indica "DEVELOPMENT" utiliza el entorno de Developer
-// que conecta a la database MongoDB
-// Si se indica otra cosa que no sea "DEVELOPMENT", la app inicializa en el entorno "production"
-// (ACLARACION: por ahora "production" tambien funciona en un entorno de MongoDB, creando una nueva Coleccion para el desarrollo)
+const environment = process.env.NODE_ENV || "DEVELOPMENT";
 
-const environment = "DEVELOPMENT";
-
-dotenv.config({ path: environment === "DEVELOPMENT" ? "./.env.development" : "./.env.production", });
+dotenv.config({ path: environment === "DEVELOPMENT" ? "./.env.development" : "./.env.production" });
 
 export default {
   MONGO_URL: process.env.MONGO_URL,
-  PORT: process.env.PORT,
+  PORT: process.env.PORT || 8080,
   BASE_URL: process.env.BASE_URL,
+  SESSION_SECRET: process.env.SESSION_SECRET || "secretkey",
   CLIENT_ID: process.env.CLIENT_ID,
   CLIENT_SECRET: process.env.CLIENT_SECRET,
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
@@ -22,4 +18,5 @@ export default {
   STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
   STRIPE_PUBLISHABLE_KEY: process.env.STRIPE_PUBLISHABLE_KEY,
   STRIPE_BASE_URL: process.env.STRIPE_BASE_URL,
+  TEST_MODE: process.env.TEST_MODE === "true",
 };

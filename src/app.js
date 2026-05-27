@@ -6,6 +6,9 @@ import passport from "passport";
 import session from "express-session";
 import { create } from "express-handlebars";
 import compression from "compression";
+import morgan from "morgan";
+import helmet from "helmet";
+import cors from "cors";
 import swaggerJSDoc from "swagger-jsdoc";
 import swaggerUiExpress from "swagger-ui-express";
 
@@ -34,6 +37,13 @@ import errorHandler from "./middleware/errors/index.js";
 const app = express();
 
 const PORT = config.PORT;
+
+// Security middleware
+app.use(helmet({ contentSecurityPolicy: false }));
+app.use(cors({ origin: config.BASE_URL, credentials: true }));
+
+// Logging
+app.use(morgan("dev"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -69,12 +79,15 @@ app.use("/public", express.static(path.join(__dirname, "../public")));
 
 app.use(
   session({
-    secret: "secretkey",
+    secret: config.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({ mongoUrl: config.MONGO_URL }),
     cookie: {
       maxAge: 1000 * 60 * 60 * 24,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
     },
   })
 );

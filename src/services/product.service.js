@@ -6,7 +6,7 @@ async function getProductsService({ sort, limit = 4, page = 1, category }) {
   const query = category ? { category } : {};
 
   let options = {
-    limit: parseInt(limit, 4),
+    limit: parseInt(limit, 10),
     page: parseInt(page, 10)
   };
 
