@@ -286,3 +286,49 @@ input:checked+.slider:before {
   height: 300px;
   object-fit: cover;
 }
+
+.featured-img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  padding: 80px 0 !important;
+}
+
+.hero-section .lead {
+  color: #b0b0b0 !important;
+}
+
+.hero-section .btn-primary {
+  background-color: #e94560;
+  border-color: #e94560;
+}
+
+.hero-section .btn-primary:hover {
+  background-color: #d63851;
+  border-color: #d63851;
+}
+
+.hero-section .btn-outline-secondary {
+  color: white;
+  border-color: white;
+}
+
+.hero-section .btn-outline-secondary:hover {
+  background-color: white;
+  color: #1a1a2e;
+}
+
+.category-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: 1px solid #e0e0e0;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}

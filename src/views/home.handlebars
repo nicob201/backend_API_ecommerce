@@ -1,0 +1,57 @@
+<div class="home-page">
+  <section class="hero-section text-center py-5">
+    <div class="container">
+      <h1 class="display-4 fw-bold">E-Commerce API</h1>
+      <p class="lead text-muted mx-auto mb-4" style="max-width: 600px;">
+        Plataforma de comercio electrónico con productos de tecnología seleccionados.
+        Explora nuestro catálogo de notebooks, teclados, monitores y más.
+      </p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="{{baseUrl}}/products" class="btn btn-primary btn-lg px-4">Browse Products</a>
+        <a href="{{baseUrl}}/api/docs" class="btn btn-outline-secondary btn-lg px-4">API Docs</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-section container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold mb-0">Featured Products</h2>
+      <a href="{{baseUrl}}/products" class="btn btn-outline-primary">View All</a>
+    </div>
+
+    <div class="row g-4">
+      {{#each featuredProducts}}
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card h-100">
+          <img src="{{this.thumbnail}}" class="card-img-top featured-img" alt="{{this.title}}">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text text-muted small flex-grow-1">{{this.description}}</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="fs-5 fw-bold text-primary">${{this.price}}</span>
+              <span class="badge bg-secondary">{{this.category}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+
+  <section class="categories-section container my-5 py-4">
+    <h2 class="fw-bold text-center mb-4">Shop by Category</h2>
+    <div class="row g-3 justify-content-center">
+      {{#each categories}}
+      <div class="col-6 col-md-4 col-lg-2">
+        <a href="{{../baseUrl}}/products?category={{this}}" class="text-decoration-none">
+          <div class="card text-center p-3 category-card">
+            <div class="card-body">
+              <h6 class="card-title text-dark mb-0 text-capitalize">{{this}}</h6>
+            </div>
+          </div>
+        </a>
+      </div>
+      {{/each}}
+    </div>
+  </section>
+</div>

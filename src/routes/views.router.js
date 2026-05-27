@@ -3,12 +3,19 @@ import * as cartController from "../controllers/cart.controller.js";
 import * as productController from "../controllers/product.controller.js";
 import * as userController from "../controllers/user.controller.js";
 import { isAdmin, isAuthenticated, isNotAuthenticated } from "../middleware/auth.js";
+import productModel from "../dao/models/product.model.js";
 
 const router = express.Router();
 
 // Ruta inicial
-router.get("/", isNotAuthenticated, (req, res) => {
-  res.render("login");
+router.get("/", async (req, res) => {
+  try {
+    const featured = await productModel.aggregate([{ $sample: { size: 4 } }]);
+    const categories = await productModel.distinct("category");
+    res.render("home", { featuredProducts: featured, categories });
+  } catch {
+    res.render("home", { featuredProducts: [], categories: [] });
+  }
 });
 
 // Ruta para ver todos los productos
