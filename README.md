@@ -83,6 +83,33 @@ src/
 
 ---
 
+## 🐳 Docker
+
+```bash
+# Build and start containers
+docker compose up -d
+
+# Seed database with 24 sample products
+docker compose exec app npm run seed
+
+# View logs
+docker compose logs -f app
+
+# Stop
+docker compose down
+
+# Rebuild from scratch
+docker compose up -d --build
+```
+
+The app runs in a containerized environment with:
+- **Node.js 18** (Alpine) — non-root user, security hardened
+- **MongoDB 7** — persistent volume for data
+- Health checks on both services
+- Automatic database seeding on first start (via `npm start`)
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -229,16 +256,13 @@ The test suite covers:
 
 ## 🌐 Deployment
 
-The project is deployed on **Railway** at:
-[https://backendapiecommerce-production.up.railway.app](https://backendapiecommerce-production.up.railway.app)
+The project is deployed on **Render** (free tier):
 
-Swagger docs: [https://backendapiecommerce-production.up.railway.app/api/docs](https://backendapiecommerce-production.up.railway.app/api/docs)
-
----
-
-## 📸 Screenshots
-
-> *Add screenshots of the Swagger docs, product listing, or chat interface here.*
+| Service | URL |
+|---------|-----|
+| **Live App** | [https://backend-api-ecommerce-06bk.onrender.com](https://backend-api-ecommerce-06bk.onrender.com) |
+| **Swagger Docs** | [https://backend-api-ecommerce-06bk.onrender.com/api/docs](https://backend-api-ecommerce-06bk.onrender.com/api/docs) |
+| **API Products** | [https://backend-api-ecommerce-06bk.onrender.com/api/products](https://backend-api-ecommerce-06bk.onrender.com/api/products) |
 
 ---
 
@@ -248,7 +272,6 @@ Swagger docs: [https://backendapiecommerce-production.up.railway.app/api/docs](h
 - [ ] Add Redis caching layer
 - [ ] Implement WebSocket for real-time stock updates
 - [ ] Add admin dashboard with analytics
-- [ ] Set up Docker and CI/CD pipeline
 - [ ] Add unit tests with higher coverage
 - [ ] Implement rate limiting and request validation
 
