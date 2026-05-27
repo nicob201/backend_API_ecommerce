@@ -6,7 +6,7 @@ import productModel from "./dao/models/product.model.js";
 const products = [
   {
     title: 'MacBook Pro 14" M3 Pro',
-    description: "Laptop Apple con chip M3 Pro de 11 nucleos, 18GB RAM unificada, SSD 512GB, pantalla Liquid Retina XDR 14.2\", bateria hasta 17 horas. Ideal para desarrollo y diseno profesional.",
+    description: "Laptop Apple con chip M3 Pro de 11 núcleos, 18GB RAM unificada, SSD 512GB, pantalla Liquid Retina XDR 14.2\", batería hasta 17 horas. Ideal para desarrollo y diseño profesional.",
     price: 1999,
     thumbnail: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp14-spaceblack-select-202310",
     code: "NB-001",
@@ -16,7 +16,7 @@ const products = [
   },
   {
     title: "Dell XPS 15",
-    description: "Ultrabook Dell con Intel Core i7-13700H, 16GB RAM, SSD 512GB, pantalla OLED 15.6\" 3.5K tactil, GPU NVIDIA RTX 4060. Perfecta para creadores de contenido.",
+    description: "Ultrabook Dell con Intel Core i7-13700H, 16GB RAM, SSD 512GB, pantalla OLED 15.6\" 3.5K táctil, GPU NVIDIA RTX 4060. Perfecta para creadores de contenido.",
     price: 1699,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/Microsoft_Surface_Laptop_4_qcty9z.jpg",
     code: "NB-002",
@@ -26,7 +26,7 @@ const products = [
   },
   {
     title: "Lenovo ThinkPad X1 Carbon Gen 11",
-    description: "Notebook empresarial ultraligera con Intel Core i7-1365U, 16GB RAM, SSD 512GB, pantalla 14\" WUXGA IPS, certificacion militar MIL-STD-810H.",
+    description: "Notebook empresarial ultraligera con Intel Core i7-1365U, 16GB RAM, SSD 512GB, pantalla 14\" WUXGA IPS, certificación militar MIL-STD-810H.",
     price: 1549,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1728680807/DellXPS13_smcbht.jpg",
     code: "NB-003",
@@ -36,7 +36,7 @@ const products = [
   },
   {
     title: "ASUS ROG Zephyrus G14",
-    description: "Laptop gamer compacta con AMD Ryzen 9 7940HS, 16GB RAM, RTX 4060, SSD 1TB, pantalla 14\" QHD 165Hz, teclado RGB. Potencia en tamano pequeno.",
+    description: "Laptop gamer compacta con AMD Ryzen 9 7940HS, 16GB RAM, RTX 4060, SSD 1TB, pantalla 14\" QHD 165Hz, teclado RGB. Potencia en tamaño pequeño.",
     price: 1399,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1728680723/AsusROGZephyrusG14_kztach.jpg",
     code: "NB-004",
@@ -46,7 +46,7 @@ const products = [
   },
   {
     title: "HP Spectre x360 16",
-    description: "Convertible premium 2-en-1 con Intel Core i7-13700H, 16GB RAM, SSD 1TB, pantalla tactil 16\" 3K+ OLED, lapiz activo incluido. Versatilidad total.",
+    description: "Convertible premium 2-en-1 con Intel Core i7-13700H, 16GB RAM, SSD 1TB, pantalla táctil 16\" 3K+ OLED, lápiz activo incluido. Versatilidad total.",
     price: 1249,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/HP_Spectre_x360_13_stjqb2.jpg",
     code: "NB-005",
@@ -56,7 +56,7 @@ const products = [
   },
   {
     title: "Logitech MX Mechanical Mini",
-    description: "Teclado mecanico inalambrico retroiluminado con switches tactiles silenciosos, conexion Bluetooth multipunto y USB-C. Compacto, profesional y preciso.",
+    description: "Teclado mecánico inalámbrico retroiluminado con switches táctiles silenciosos, conexión Bluetooth multipunto y USB-C. Compacto, profesional y preciso.",
     price: 149,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/HyperX_Alloy_Origins_Core_bulyun.webp",
     code: "KB-001",
@@ -66,7 +66,7 @@ const products = [
   },
   {
     title: "Keychron Q1 Pro",
-    description: "Teclado mecanico premium 75% con carcasa de aluminio CNC, switches Gateron Jupiter, conexion inalambrica QMK/VIA. Construccion artesanal de alta gama.",
+    description: "Teclado mecánico premium 75% con carcasa de aluminio CNC, switches Gateron Jupiter, conexión inalámbrica QMK/VIA. Construcción artesanal de alta gama.",
     price: 199,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1728680842/RazerBlackWidowElite_zt9bqq.png",
     code: "KB-002",
@@ -76,7 +76,7 @@ const products = [
   },
   {
     title: "Razer Huntsman V2 TKL",
-    description: "Teclado optico para gaming con switches Razer de 2da generacion, reposamunecas ergonomico, retroiluminacion RGB Chroma. Respuesta ultra rapida.",
+    description: "Teclado óptico para gaming con switches Razer de 2da generación, reposamuñecas ergonómico, retroiluminación RGB Chroma. Respuesta ultra rápida.",
     price: 179,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/SteelSeries_Apex_Pro_f0g8c8.webp",
     code: "KB-003",
@@ -86,7 +86,7 @@ const products = [
   },
   {
     title: "Apple Magic Keyboard con Touch ID",
-    description: "Teclado inalambrico oficial de Apple con sensor Touch ID integrado, bateria recargable, diseno ultradelgado. Ideal para Mac y iPad.",
+    description: "Teclado inalámbrico oficial de Apple con sensor Touch ID integrado, batería recargable, diseño ultradelgado. Ideal para Mac y iPad.",
     price: 99,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1728680723/CorsairK95RGBPlatinum_gvm7v3.jpg",
     code: "KB-004",
@@ -96,7 +96,7 @@ const products = [
   },
   {
     title: "Corsair K70 RGB Pro",
-    description: "Teclado mecanico gaming con switches Cherry MX Speed, marco de aluminio anodizado, retroiluminacion RGB dinamica, tecla de perfil dedicada.",
+    description: "Teclado mecánico gaming con switches Cherry MX Speed, marco de aluminio anodizado, retroiluminación RGB dinámica, tecla de perfil dedicada.",
     price: 159,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/HyperX_Alloy_Origins_Core_bulyun.webp",
     code: "KB-005",
@@ -106,7 +106,7 @@ const products = [
   },
   {
     title: 'Dell UltraSharp U2723QE 27"',
-    description: "Monitor profesional 4K UHD con panel IPS Black, 99% DCI-P3, USB-C hub con entrega de 90W, certificacion TUV para cuidado ocular.",
+    description: "Monitor profesional 4K UHD con panel IPS Black, 99% DCI-P3, USB-C hub con entrega de 90W, certificación TUV para cuidado ocular.",
     price: 549,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353034/lenovolegion-5pro_ot1zjq.jpg",
     code: "MN-001",
@@ -116,7 +116,7 @@ const products = [
   },
   {
     title: 'Samsung Odyssey G7 32"',
-    description: "Monitor gaming curvo 1000R con resolucion QHD 2560x1440, tasa de refresco 240Hz, 1ms, soporte G-Sync y FreeSync Premium Pro.",
+    description: "Monitor gaming curvo 1000R con resolución QHD 2560x1440, tasa de refresco 240Hz, 1ms, soporte G-Sync y FreeSync Premium Pro.",
     price: 699,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731354028/Samsung_QLED_Q60T_65_dhewbi.jpg",
     code: "MN-002",
@@ -126,7 +126,7 @@ const products = [
   },
   {
     title: 'LG UltraFine 27" 5K',
-    description: "Monitor LG con resolucion 5120x2880, panel IPS, puerto Thunderbolt 3 con entrega de 94W, altavoces integrados. Calidad de imagen de referencia.",
+    description: "Monitor LG con resolución 5120x2880, panel IPS, puerto Thunderbolt 3 con entrega de 94W, altavoces integrados. Calidad de imagen de referencia.",
     price: 1299,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/Philips_55PUS850512_55_tmp85y.webp",
     code: "MN-003",
@@ -136,7 +136,7 @@ const products = [
   },
   {
     title: "ASUS ProArt PA278CV",
-    description: "Monitor profesional 27\" QHD con calibracion de fabrica Delta E < 2, 100% sRGB/Rec.709, USB-C con entrega de 65W. Precision cromatica absoluta.",
+    description: "Monitor profesional 27\" QHD con calibración de fábrica Delta E < 2, 100% sRGB/Rec.709, USB-C con entrega de 65W. Precisión cromática absoluta.",
     price: 429,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353034/Sony_Bravia_XR_A90J_55_cocbbh.jpg",
     code: "MN-004",
@@ -146,7 +146,7 @@ const products = [
   },
   {
     title: "Sony WH-1000XM5",
-    description: "Auriculares inalambricos con cancelacion de ruido activa lider del mercado, 30 horas de bateria, drivers de 30mm, multipunto Bluetooth. Sonido envolvente.",
+    description: "Auriculares inalámbricos con cancelación de ruido activa líder del mercado, 30 horas de batería, drivers de 30mm, multipunto Bluetooth. Sonido envolvente.",
     price: 349,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1770560689/wireless-phones_npfper.jpg",
     code: "AH-001",
@@ -156,7 +156,7 @@ const products = [
   },
   {
     title: "Apple AirPods Max",
-    description: "Auriculares over-ear de Apple con cancelacion de ruido activa, audio espacial con seguimiento dinamico, chip H1, diseno de lujo con almohadillas de malla.",
+    description: "Auriculares over-ear de Apple con cancelación de ruido activa, audio espacial con seguimiento dinámico, chip H1, diseño de lujo con almohadillas de malla.",
     price: 549,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/Apple_AirPods_Max_fpncet.jpg",
     code: "AH-002",
@@ -166,7 +166,7 @@ const products = [
   },
   {
     title: "Sennheiser HD 560S",
-    description: "Auriculares abiertos de referencia para audiofilos, drivers de 120 ohmios, respuesta de frecuencia 6Hz-38kHz, diseno ultraligero. Sonido neutro y detallado.",
+    description: "Auriculares abiertos de referencia para audiófilos, drivers de 120 ohmios, respuesta de frecuencia 6Hz-38kHz, diseño ultraligero. Sonido neutro y detallado.",
     price: 199,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353034/Sennheiser_HD_560S_ixrjgv.jpg",
     code: "AH-003",
@@ -176,7 +176,7 @@ const products = [
   },
   {
     title: "Bose QuietComfort Ultra",
-    description: "Auriculares inalambricos con cancelacion de ruido adaptativa, audio inmersivo con seguimiento de cabeza, 24 horas de bateria, modos Quiet y Aware.",
+    description: "Auriculares inalámbricos con cancelación de ruido adaptativa, audio inmersivo con seguimiento de cabeza, 24 horas de batería, modos Quiet y Aware.",
     price: 429,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/Bose_QC_Ultra_k2vwx3.jpg",
     code: "AH-004",
@@ -186,7 +186,7 @@ const products = [
   },
   {
     title: "Logitech MX Master 3S",
-    description: "Mouse inalambrico ergonomico con sensor 8000 DPI, scroll electromagnetico MagSpeed, botones programables, conexion Bluetooth y USB-C. Precision total.",
+    description: "Mouse inalámbrico ergonómico con sensor 8000 DPI, scroll electromagnético MagSpeed, botones programables, conexión Bluetooth y USB-C. Precisión total.",
     price: 99,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1728680723/LogitechMXMaster3_pg1nmr.jpg",
     code: "MS-001",
@@ -196,7 +196,7 @@ const products = [
   },
   {
     title: "Razer DeathAdder V3",
-    description: "Mouse gaming ergonomico ultraligero de 59g, sensor Focus Pro 30K, switches opticos de 3ra generacion, 90 millones de clics. Rendimiento profesional.",
+    description: "Mouse gaming ergonómico ultraligero de 59g, sensor Focus Pro 30K, switches ópticos de 3ª generación, 90 millones de clics. Rendimiento profesional.",
     price: 69,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/Razer_DeathAdder_V3_vhkbti.jpg",
     code: "MS-002",
@@ -206,7 +206,7 @@ const products = [
   },
   {
     title: "Apple Magic Mouse",
-    description: "Mouse inalambrico minimalista de Apple con superficie Multi-Touch, bateria recargable, seguimiento por laser. Diseno iconico para el ecosistema Apple.",
+    description: "Mouse inalámbrico minimalista de Apple con superficie Multi-Touch, batería recargable, seguimiento por láser. Diseño icónico para el ecosistema Apple.",
     price: 79,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/Apple_Magic_Mouse_ewep3c.jpg",
     code: "MS-003",
@@ -216,7 +216,7 @@ const products = [
   },
   {
     title: "Sonos Era 100",
-    description: "Altavoz inteligente con sonido estereo envolvente, tweeter doble, woofer de rango medio, compatibilidad con AirPlay 2, WiFi y Bluetooth. Audio multiroom.",
+    description: "Altavoz inteligente con sonido estéreo envolvente, tweeter doble, woofer de rango medio, compatibilidad con AirPlay 2, WiFi y Bluetooth. Audio multiroom.",
     price: 249,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353034/Sonos_Era_100_bjx5wk.jpg",
     code: "SP-001",
@@ -226,7 +226,7 @@ const products = [
   },
   {
     title: "JBL Charge 5",
-    description: "Parlante Bluetooth portatil con graves potentes, resistencia IP67 al agua y polvo, bateria de 20 horas, funcion power bank. Lleva tu musica a todas partes.",
+    description: "Parlante Bluetooth portátil con graves potentes, resistencia IP67 al agua y polvo, batería de 20 horas, función power bank. Lleva tu música a todas partes.",
     price: 179,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353033/JBL_Charge_5_g7mhxg.jpg",
     code: "SP-002",
@@ -236,7 +236,7 @@ const products = [
   },
   {
     title: "Marshall Stanmore III",
-    description: "Altavoz domestico iconico con diseno vintage, sonido estereo potente, ecualizador personalizable, conectividad HDMI y Bluetooth 5.3. Estilo y calidad.",
+    description: "Altavoz doméstico icónico con diseño vintage, sonido estéreo potente, ecualizador personalizable, conectividad HDMI y Bluetooth 5.3. Estilo y calidad.",
     price: 379,
     thumbnail: "https://res.cloudinary.com/dl73hi4ir/image/upload/v1731353034/Marshall_Stanmore_III_uq7d2l.jpg",
     code: "SP-003",
@@ -247,16 +247,22 @@ const products = [
 ];
 
 async function seed() {
-  await mongoose.connect(config.MONGO_URL);
+  const alreadyConnected = mongoose.connection.readyState === 1 || mongoose.connection.readyState === 2;
+  if (!alreadyConnected) {
+    await mongoose.connect(config.MONGO_URL);
+  }
+
   const count = await productModel.countDocuments();
   if (count > 0) {
-    console.log(`Seed skipped: ${count} products already exist`);
-    await mongoose.disconnect();
+    console.log("Seed skipped: " + count + " products already exist");
+    if (!alreadyConnected) await mongoose.disconnect();
     return;
   }
+
   const result = await productModel.insertMany(products);
-  console.log(`${result.length} products seeded successfully`);
-  await mongoose.disconnect();
+  console.log(result.length + " products seeded successfully");
+
+  if (!alreadyConnected) await mongoose.disconnect();
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

@@ -33,6 +33,7 @@ import initializePassport from "./config/passport.config.js";
 import config from "./config/config.js";
 import configureSocket from "./config/socket.config.js";
 import errorHandler from "./middleware/errors/index.js";
+import seed from "./seed.js";
 
 const app = express();
 
@@ -129,8 +130,13 @@ app.get("/api/stripe-key", (req, res) => {
   res.json({ publishableKey: config.STRIPE_PUBLISHABLE_KEY });
 });
 
-const httpServer = app.listen(PORT, () => {
+const httpServer = app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT} OK`);
+  try {
+    await seed();
+  } catch (err) {
+    console.error("Auto-seed failed:", err.message);
+  }
 });
 
 const io = configureSocket(httpServer);
