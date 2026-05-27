@@ -1,0 +1,35 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: ecommerce-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: unless-stopped
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    container_name: ecommerce-api
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.docker
+    environment:
+      - NODE_ENV=production
+      - MONGO_URL=mongodb://mongo:27017/ecommerce
+      - PORT=8080
+      - BASE_URL=http://localhost:8080
+      - STRIPE_BASE_URL=http://localhost:8080/api
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  mongo-data:

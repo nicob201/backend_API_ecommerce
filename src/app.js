@@ -36,7 +36,7 @@ import errorHandler from "./middleware/errors/index.js";
 
 const app = express();
 
-const PORT = config.PORT;
+const PORT = process.env.PORT || 8080;
 
 // Security middleware
 app.use(helmet({ contentSecurityPolicy: false }));

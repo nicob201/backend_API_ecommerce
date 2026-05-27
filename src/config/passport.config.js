@@ -11,68 +11,65 @@ const LocalStrategy = local.Strategy;
 // Estrategia local para Passport
 const initializePassport = () => {
 
-  /////////////////////////////////////////
-  /////////// LOGIN CON GITHUB ///////////
-  ////////////////////////////////////////
-  passport.use("github", new GitHubStrategy({
-    clientID: config.CLIENT_ID,
-    clientSecret: config.CLIENT_SECRET,
-    callbackURL: `${config.BASE_URL}/api/sessions/githubcallback`,
-    customHeaders: { 'prompt': 'select_account' }
-  },
-    async (accessToken, refreshToken, profile, done) => {
-      try {
-        let user = await userService.findOne({ githubId: profile.id });
-        if (!user) {
-          let newUser = {
-            first_name: profile._json.name || profile.displayName || profile.username,
-            last_name: "",
-            age: 20,
-            email: profile._json.email || "",
-            password: "",
-            githubId: profile.id,
-          };
-          let result = await userService.create(newUser);
-          done(null, result);
-        } else {
-          done(null, user);
+  if (config.CLIENT_ID && config.CLIENT_SECRET) {
+    passport.use("github", new GitHubStrategy({
+      clientID: config.CLIENT_ID,
+      clientSecret: config.CLIENT_SECRET,
+      callbackURL: `${config.BASE_URL}/api/sessions/githubcallback`,
+      customHeaders: { prompt: 'select_account' }
+    },
+      async (accessToken, refreshToken, profile, done) => {
+        try {
+          let user = await userService.findOne({ githubId: profile.id });
+          if (!user) {
+            let newUser = {
+              first_name: profile._json.name || profile.displayName || profile.username,
+              last_name: "",
+              age: 20,
+              email: profile._json.email || "",
+              password: "",
+              githubId: profile.id,
+            };
+            let result = await userService.create(newUser);
+            done(null, result);
+          } else {
+            done(null, user);
+          }
+        } catch (error) {
+          return done(error);
         }
-      } catch (error) {
-        return done(error);
       }
-    }
-  ));
+    ));
+  }
 
-  ////////////////////////////////////////
-  /////////// LOGIN CON GOOGLE ///////////
-  ////////////////////////////////////////
-  passport.use("google", new GoogleStrategy({
-    clientID: config.GOOGLE_CLIENT_ID,
-    clientSecret: config.GOOGLE_CLIENT_SECRET,
-    callbackURL: `${config.BASE_URL}/api/sessions/googlecallback`,
-  },
-    async (accessToken, refreshToken, profile, done) => {
-      try {
-        let user = await userService.findOne({ email: profile._json.email });
-        if (!user) {
-          let newUser = {
-            first_name: profile._json.given_name,
-            last_name: profile._json.family_name,
-            age: 20,
-            email: profile._json.email,
-            password: "",
-          };
-          let result = await userService.create(newUser);
-          done(null, result);
-        } else {
-          done(null, user);
+  if (config.GOOGLE_CLIENT_ID && config.GOOGLE_CLIENT_SECRET) {
+    passport.use("google", new GoogleStrategy({
+      clientID: config.GOOGLE_CLIENT_ID,
+      clientSecret: config.GOOGLE_CLIENT_SECRET,
+      callbackURL: `${config.BASE_URL}/api/sessions/googlecallback`,
+    },
+      async (accessToken, refreshToken, profile, done) => {
+        try {
+          let user = await userService.findOne({ email: profile._json.email });
+          if (!user) {
+            let newUser = {
+              first_name: profile._json.given_name,
+              last_name: profile._json.family_name,
+              age: 20,
+              email: profile._json.email,
+              password: "",
+            };
+            let result = await userService.create(newUser);
+            done(null, result);
+          } else {
+            done(null, user);
+          }
+        } catch (error) {
+          return done(error);
         }
-      } catch (error) {
-        return done(error);
       }
-    }
-  )
-  );
+    ));
+  }
 
   /////////////////////////////////////////
   /////////// LOGIN CON PASSPORT //////////

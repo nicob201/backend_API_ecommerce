@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: ecommerce-api
+    runtime: docker
+    repo: https://github.com/nicob201/backend_API_ecommerce
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8080
+      - key: BASE_URL
+        value: https://ecommerce-api.onrender.com
+      - key: MONGO_URL
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PUBLISHABLE_KEY
+        sync: false
+      - key: STRIPE_BASE_URL
+        value: https://ecommerce-api.onrender.com/api
+      - key: MAILING_EMAIL
+        sync: false
+      - key: MAILING_PASSWORD
+        sync: false
+      - key: CLIENT_ID
+        sync: false
+      - key: CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
