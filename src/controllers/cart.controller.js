@@ -42,22 +42,23 @@ async function getCartById(req, res) {
 // Si se pasa cantidad de unidades se agrega ese monto a "units", sino por defecto es 1
 // Es necesario que haya una sesion iniciada de algun usuario
 async function createCart(req, res) {
-  const { productId, units } = req.body;
-  const userId = req.user._id;
-
-  if (!userId) {
-    return res.status(400).send({ status: "error", error: "User not authenticated!" });
-  }
-
-  if (!productId || typeof productId !== 'string' || isNaN(units) || units < 0) {
-    const errorInfo = generateCartErrorInfo({ productId, units });
-    const error = new Error(errorInfo);
-    error.code = EErrors.INVALID_TYPES_ERROR;
-    console.error("Error adding product to cart!:", error);
-    return res.status(400).send({ status: "error", error: error.message });
-  }
-
   try {
+    if (!req.user) {
+      console.error("Cart controller: req.user is null — session deserialization failed");
+      return res.status(401).send({ status: "error", error: "User not authenticated!" });
+    }
+
+    const { productId, units } = req.body;
+    const userId = req.user._id;
+
+    if (!productId || typeof productId !== 'string' || isNaN(units) || units < 0) {
+      const errorInfo = generateCartErrorInfo({ productId, units });
+      const error = new Error(errorInfo);
+      error.code = EErrors.INVALID_TYPES_ERROR;
+      console.error("Error adding product to cart!:", error);
+      return res.status(400).send({ status: "error", error: error.message });
+    }
+
     const result = await createCartService(userId, productId, units);
     res.send({ result: result.message });
   } catch (error) {

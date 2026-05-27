@@ -43,7 +43,7 @@ async function createCartService(userId, productId, units = 1) {
       $push: { cart: { id: cart._id } },
     });
   } else {
-    const existingProduct = cart.products.find((item) => item.product._id.toString() === productId);
+    const existingProduct = cart.products.find((item) => item.product.toString() === productId);
     if (existingProduct) {
       if (product.stock < existingProduct.units + parseInt(units)) {
         throw new Error("Insufficient stock for this quantity!");
@@ -80,7 +80,7 @@ async function deleteProductFromCartService(cid, pid) {
     throw new Error("Cart not found!");
   }
   // si se encuentra el carrito y el id del producto, se lo borra del carrito
-  cart.products = cart.products.filter((product) => product.product._id != pid);
+  cart.products = cart.products.filter((product) => product.product.toString() != pid);
   await cart.save();
   return { message: "Success removing product from cart!" };
 }
@@ -97,7 +97,7 @@ async function updateProductUnitsService(cid, pid, units) {
     throw new Error("Product not found!");
   }
 
-  const existingProduct = cart.products.find((item) => item.product._id.toString() === pid);
+  const existingProduct = cart.products.find((item) => item.product.toString() === pid);
   if (existingProduct) {
     const totalUnits = existingProduct.units + parseInt(units);
     if (product.stock < totalUnits) {
